@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maxim App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Status Bar -->
+        <div class="status-bar">
+            <div class="status-time">11:39</div>
+            <div class="status-icons">
+                <i class="fas fa-wifi"></i>
+                <i class="fas fa-signal"></i>
+                <i class="fas fa-battery-three-quarters"></i>
+            </div>
+        </div>
+
+        <!-- Header -->
+        <header>
+            <div class="logo-container">
+                <a href="index.html"><img src="Asset/LogoMaxim.jpg" alt="maxim logo" class="logo-image"></a>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main>
+            <!-- Location Selection -->
+            <div class="location-card">
+                <div class="pickup-location">
+                    <div class="location-icon red-circle">
+                        <div class="inner-circle"></div>
+                    </div>
+                    <div class="location-details">
+                        <div class="location-label">Lokasi penjemputan</div>
+                        <div class="location-address"></div>
+                        <div class="location-street"></div>
+                    </div>
+                    <div class="chevron">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </div>
+                <div class="pickup-point">
+                    <input type="text" placeholder="Titik penjemputan" class="pickup-input">
+                    <div class="current-location-btn">
+                        <i class="fas fa-crosshairs"></i>
+                    </div>
+                </div>
+                <div class="destination">
+                    <div class="location-icon blue-marker">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="location-details">
+                        <div class="location-label">Tujuan</div>
+                    </div>
+                    <div class="chevron">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scheduling Options -->
+            <div class="schedule-card">
+                <div class="schedule-option">
+                    <i class="fas fa-users"></i>
+                    <span>Perincian</span>
+                </div>
+                <div class="schedule-options-row">
+                    <div class="schedule-option-btn">
+                        <i class="fas fa-money-bill"></i>
+                        <span>Tunai</span>
+                    </div>
+                    <div class="schedule-option-btn active">
+                        <i class="fas fa-clock"></i>
+                        <span>Saat ini</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Transport Options -->
+            <div class="transport-options">
+                <div class="transport-option active">
+                    <div class="transport-icon">
+                        <img src="Asset/Motor.png" alt="Bike">
+                    </div>
+                    <div class="transport-name">Motor</div>
+                </div>
+                <div class="transport-option">
+                    <div class="transport-icon">
+                        <img src="Asset/Mobil.png" alt="Car">
+                    </div>
+                    <div class="transport-name">Mobil</div>
+                </div>
+                <div class="transport-option">
+                    <div class="transport-icon">
+                        <img src="Asset/Delivery.png" alt="Delivery">
+                    </div>
+                    <div class="transport-name">Pengantaran</div>
+                </div>
+                <div class="transport-option">
+                    <div class="transport-icon">
+                        <img src="Asset/Makanan.png" alt="Food">
+                    </div>
+                    <div class="transport-name">Makanan</div>
+                </div>
+            </div>
+
+            <!-- Order Button -->
+            <button class="order-btn">MEMESAN</button>
+        </main>
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav">
+            <div class="nav-item active">
+                <i class="fas fa-home"></i>
+                <span>Beranda</span>
+            </div>
+            <div class="nav-item">
+                <i class="fas fa-list"></i>
+                <span>Order</span>
+            </div>
+            <div class="nav-item">
+                <i class="far fa-star"></i>
+                <span>Favorit</span>
+            </div>
+            <div class="nav-item">
+                <i class="fas fa-bars"></i>
+                <span>Menu</span>
+            </div>
+        </nav>
+
+    <script src="script.js"></script>
+</body>
+</html>

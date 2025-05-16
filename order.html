@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maxim App</title>
+    <link rel="stylesheet" href="order.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Status Bar -->
+        <div class="status-bar">
+            <div class="status-time">11:39</div>
+            <div class="status-icons">
+                <i class="fas fa-wifi"></i>
+                <i class="fas fa-signal"></i>
+                <i class="fas fa-battery-three-quarters"></i>
+            </div>
+        </div>
+
+        <!-- Header -->
+        <header>
+            <div class="logo-container">
+                <a href="index.html"><img src="Asset/LogoMaxim.jpg" alt="maxim logo" class="logo-image"></a>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main>
+            <!-- Location Selection -->
+            <div class="location-card">
+                <div class="pickup-location">
+                    <div class="location-icon red-circle">
+                        <div class="inner-circle"></div>
+                    </div>
+                    <div class="location-details">
+                        <div class="location-label">Lokasi penjemputan</div>
+                        <div class="location-address">Binus University, Alam Sutera</div>
+                        <div class="location-street">Jl. Jalur Sutera Bar. No.Kav. 21, RT.001/RW.004, Panunggangan, Kec. Pinang, Kota Tangerang, Banten 15143</div>
+                    </div>
+                    <div class="chevron">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </div>
+                <div class="pickup-point">
+                    <input type="text" placeholder="Binus University, Alam Sutera" class="pickup-input">
+                    <div class="current-location-btn">
+                        <i class="fas fa-crosshairs"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="map-container">
+                <img src="Asset/MapBinus.png" alt="Map View" class="map-image">
+            </div>
+
+            <!-- Location Options (New Section) -->
+            <div class="location-title">Binus University Alam Sutera</div>
+            
+            <div class="location-options">
+                <div class="location-option">
+                    <div class="location-option-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <div class="location-option-text">Lobby</div>
+                </div>
+                
+                <div class="location-option">
+                    <div class="location-option-icon">
+                        <i class="fas fa-parking"></i>
+                    </div>
+                    <div class="location-option-text">Parkir Timur</div>
+                </div>
+            </div>
+
+            <!-- Order Button -->
+            <button class="order-btn">MEMESAN</button>
+        </main>
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav">
+            <div class="nav-item">
+                <i class="fas fa-home"></i>
+                <span>Beranda</span>
+            </div>
+            <div class="nav-item active">
+                <i class="fas fa-list"></i>
+                <span>Order</span>
+            </div>
+            <div class="nav-item">
+                <i class="far fa-star"></i>
+                <span>Favorit</span>
+            </div>
+            <div class="nav-item">
+                <i class="fas fa-bars"></i>
+                <span>Menu</span>
+            </div>
+        </nav>
+
+    <script src="order.js"></script>
+</body>
+</html>
