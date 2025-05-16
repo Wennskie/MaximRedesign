@@ -273,10 +273,10 @@ navItems.forEach(item => {
         navItems.forEach(navItem => navItem.classList.remove('active'));
         this.classList.add('active');
         
-        const navName = this.querySelector('span').textContent;
-        if (navName !== 'Beranda') {
-            alert(`Halaman ${navName} sedang dalam pengembangan`);
-        }
+        // const navName = this.querySelector('span').textContent;
+        // if (navName !== 'Beranda') {
+        //     alert(`Halaman ${navName} sedang dalam pengembangan`);
+        // }
     });
 });
 
@@ -331,164 +331,192 @@ pickupInput.addEventListener('blur', function() {
 // Handler untuk tombol lokasi saat ini
     const currentLocationBtn = document.querySelector('.current-location-btn');
     
-    currentLocationBtn.addEventListener('click', function() {
-        // Tampilkan loading terlebih dahulu
-        showLocationLoadingModal();
+    if (currentLocationBtn) {
+        // MODIFIED: Redirect to suggest.html when current location button is clicked
+        currentLocationBtn.addEventListener('click', function() {
+            window.location.href = 'suggest.html';
+        });
+    } else {
+        console.error('Tombol lokasi saat ini (.current-location-btn) tidak ditemukan');
         
-        // Simulasi mendapatkan lokasi (dalam aplikasi nyata gunakan Geolocation API)
-        setTimeout(() => {
-            // Simulasikan mendapatkan lokasi
-            const userCurrentLocation = {
-                name: 'Lokasi Anda Saat Ini',
-                address: 'Jl. Jalur Sutera Bar. No.Kav. 21, RT.001/RW.004, Panunggangan, Kec. Pinang, Kota Tangerang, Banten 15143',
-                district: 'Alam Sutera',
-                coordinates: {
-                    lat: -6.2088,
-                    lng: 106.8456
-                }
-            };
+        // Jika tombol tidak ditemukan, mungkin kita perlu membuatnya
+        const locationCard = document.querySelector('.location-card');
+        if (locationCard) {
+            const currentLocationButton = document.createElement('button');
+            currentLocationButton.className = 'current-location-btn';
+            currentLocationButton.innerHTML = '<i class="fas fa-crosshairs"></i> Lokasi Saat Ini';
             
-            // Tampilkan modal dengan lokasi
-            showCurrentLocationModal(userCurrentLocation);
-        }, 1500); // Simulasi loading selama 1.5 detik
-    });
-    
-    // Fungsi untuk menampilkan loading saat mendapatkan lokasi
-    function showLocationLoadingModal() {
-        const modal = document.createElement('div');
-        modal.className = 'location-modal';
-        modal.id = 'locationLoadingModal';
-        
-        const modalContent = `
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h3>Mendapatkan Lokasi</h3>
-                </div>
-                <div class="location-content" style="text-align: center; padding: 30px 15px;">
-                    <div class="loading-spinner">
-                        <i class="fas fa-spinner fa-spin" style="font-size: 40px; color: #ffcc00;"></i>
-                    </div>
-                    <p style="margin-top: 15px; color: #666;">Mendapatkan lokasi Anda saat ini...</p>
-                </div>
-            </div>
-        `;
-        
-        modal.innerHTML = modalContent;
-        document.body.appendChild(modal);
-        
-        // Tampilkan modal dengan animasi
-        setTimeout(() => modal.classList.add('show'), 10);
+            // Tambahkan sebelum elemen lain dalam location card
+            locationCard.prepend(currentLocationButton);
+            
+            // MODIFIED: Add event listener to redirect to suggest.html
+            currentLocationButton.addEventListener('click', function() {
+                window.location.href = 'suggest.html';
+            });
+        }
     }
+
+// Handler untuk tombol lokasi saat ini
+    // const currentLocationBtn = document.querySelector('.current-location-btn');
+    
+    // currentLocationBtn.addEventListener('click', function() {
+    //     // Tampilkan loading terlebih dahulu
+    //     showLocationLoadingModal();
+        
+    //     // Simulasi mendapatkan lokasi (dalam aplikasi nyata gunakan Geolocation API)
+    //     setTimeout(() => {
+    //         // Simulasikan mendapatkan lokasi
+    //         const userCurrentLocation = {
+    //             name: 'Lokasi Anda Saat Ini',
+    //             address: 'Jl. Jalur Sutera Bar. No.Kav. 21, RT.001/RW.004, Panunggangan, Kec. Pinang, Kota Tangerang, Banten 15143',
+    //             district: 'Alam Sutera',
+    //             coordinates: {
+    //                 lat: -6.2088,
+    //                 lng: 106.8456
+    //             }
+    //         };
+            
+    //         // Tampilkan modal dengan lokasi
+    //         showCurrentLocationModal(userCurrentLocation);
+    //     }, 1500); // Simulasi loading selama 1.5 detik
+    // });
+    
+    // // Fungsi untuk menampilkan loading saat mendapatkan lokasi
+    // function showLocationLoadingModal() {
+    //     const modal = document.createElement('div');
+    //     modal.className = 'location-modal';
+    //     modal.id = 'locationLoadingModal';
+        
+    //     const modalContent = `
+    //         <div class="modal-content">
+    //             <div class="modal-header">
+    //                 <h3>Mendapatkan Lokasi</h3>
+    //             </div>
+    //             <div class="location-content" style="text-align: center; padding: 30px 15px;">
+    //                 <div class="loading-spinner">
+    //                     <i class="fas fa-spinner fa-spin" style="font-size: 40px; color: #ffcc00;"></i>
+    //                 </div>
+    //                 <p style="margin-top: 15px; color: #666;">Mendapatkan lokasi Anda saat ini...</p>
+    //             </div>
+    //         </div>
+    //     `;
+        
+    //     modal.innerHTML = modalContent;
+    //     document.body.appendChild(modal);
+        
+    //     // Tampilkan modal dengan animasi
+    //     setTimeout(() => modal.classList.add('show'), 10);
+    // }
     
     // Fungsi untuk menampilkan modal lokasi saat ini
-    function showCurrentLocationModal(location) {
-        // Hapus modal loading jika ada
-        const loadingModal = document.getElementById('locationLoadingModal');
-        if (loadingModal) {
-            loadingModal.classList.remove('show');
-            setTimeout(() => loadingModal.remove(), 300);
-        }
+    // function showCurrentLocationModal(location) {
+    //     // Hapus modal loading jika ada
+    //     const loadingModal = document.getElementById('locationLoadingModal');
+    //     if (loadingModal) {
+    //         loadingModal.classList.remove('show');
+    //         setTimeout(() => loadingModal.remove(), 300);
+    //     }
         
-        // Buat modal baru untuk lokasi
-        const modal = document.createElement('div');
-        modal.className = 'location-modal';
+    //     // Buat modal baru untuk lokasi
+    //     const modal = document.createElement('div');
+    //     modal.className = 'location-modal';
         
-        const modalContent = `
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h3>Lokasi Saat Ini</h3>
-                    <span class="close-modal">&times;</span>
-                </div>
-                <div class="location-content">
-                    <div class="current-location-info">
-                        <div class="location-info-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div class="location-info-details">
-                            <div class="location-info-name">${location.name}</div>
-                            <div class="location-info-address">${location.address}, ${location.district}</div>
-                        </div>
-                    </div>
-                    <div style="padding: 0 10px 10px;">
-                        <p style="margin-bottom: 15px; color: #666; font-size: 14px;">
-                            Apakah Anda ingin menggunakan lokasi ini sebagai titik penjemputan?
-                        </p>
-                    </div>
-                </div>
-                <button class="confirm-location">Gunakan Lokasi Ini</button>
-            </div>
-        `;
+    //     const modalContent = `
+    //         <div class="modal-content">
+    //             <div class="modal-header">
+    //                 <h3>Lokasi Saat Ini</h3>
+    //                 <span class="close-modal">&times;</span>
+    //             </div>
+    //             <div class="location-content">
+    //                 <div class="current-location-info">
+    //                     <div class="location-info-icon">
+    //                         <i class="fas fa-map-marker-alt"></i>
+    //                     </div>
+    //                     <div class="location-info-details">
+    //                         <div class="location-info-name">${location.name}</div>
+    //                         <div class="location-info-address">${location.address}, ${location.district}</div>
+    //                     </div>
+    //                 </div>
+    //                 <div style="padding: 0 10px 10px;">
+    //                     <p style="margin-bottom: 15px; color: #666; font-size: 14px;">
+    //                         Apakah Anda ingin menggunakan lokasi ini sebagai titik penjemputan?
+    //                     </p>
+    //                 </div>
+    //             </div>
+    //             <button class="confirm-location">Gunakan Lokasi Ini</button>
+    //         </div>
+    //     `;
         
-        modal.innerHTML = modalContent;
-        document.body.appendChild(modal);
+    //     modal.innerHTML = modalContent;
+    //     document.body.appendChild(modal);
         
-        // Tampilkan modal dengan animasi
-        setTimeout(() => modal.classList.add('show'), 10);
+    //     // Tampilkan modal dengan animasi
+    //     setTimeout(() => modal.classList.add('show'), 10);
         
-        // Tambahkan event listener untuk tombol tutup
-        modal.querySelector('.close-modal').addEventListener('click', () => {
-            modal.classList.remove('show');
-            setTimeout(() => modal.remove(), 300);
-        });
+    //     // Tambahkan event listener untuk tombol tutup
+    //     modal.querySelector('.close-modal').addEventListener('click', () => {
+    //         modal.classList.remove('show');
+    //         setTimeout(() => modal.remove(), 300);
+    //     });
         
-        // Tambahkan event listener untuk tombol konfirmasi
-        modal.querySelector('.confirm-location').addEventListener('click', () => {
-            // Update informasi lokasi penjemputan
-            document.querySelector('.location-address').textContent = location.name;
-            document.querySelector('.location-street').textContent = location.address;
+    //     // Tambahkan event listener untuk tombol konfirmasi
+    //     modal.querySelector('.confirm-location').addEventListener('click', () => {
+    //         // Update informasi lokasi penjemputan
+    //         document.querySelector('.location-address').textContent = location.name;
+    //         document.querySelector('.location-street').textContent = location.address;
             
-            // Tampilkan notifikasi kecil
-            showToast('Lokasi penjemputan diperbarui');
+    //         // Tampilkan notifikasi kecil
+    //         showToast('Lokasi penjemputan diperbarui');
             
-            // Tutup modal
-            modal.classList.remove('show');
-            setTimeout(() => modal.remove(), 300);
-        });
-    }
+    //         // Tutup modal
+    //         modal.classList.remove('show');
+    //         setTimeout(() => modal.remove(), 300);
+    //     });
+    // }
     
-    // Fungsi untuk menampilkan toast notification
-    function showToast(message) {
-        // Hapus toast yang ada jika ada
-        const existingToast = document.querySelector('.toast-notification');
-        if (existingToast) {
-            existingToast.remove();
-        }
+    // // Fungsi untuk menampilkan toast notification
+    // function showToast(message) {
+    //     // Hapus toast yang ada jika ada
+    //     const existingToast = document.querySelector('.toast-notification');
+    //     if (existingToast) {
+    //         existingToast.remove();
+    //     }
         
-        // Buat elemen toast baru
-        const toast = document.createElement('div');
-        toast.className = 'toast-notification';
-        toast.textContent = message;
+    //     // Buat elemen toast baru
+    //     const toast = document.createElement('div');
+    //     toast.className = 'toast-notification';
+    //     toast.textContent = message;
         
-        // Styling untuk toast
-        toast.style.position = 'fixed';
-        toast.style.bottom = '80px';
-        toast.style.left = '50%';
-        toast.style.transform = 'translateX(-50%)';
-        toast.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
-        toast.style.color = '#fff';
-        toast.style.padding = '10px 20px';
-        toast.style.borderRadius = '20px';
-        toast.style.fontSize = '14px';
-        toast.style.zIndex = '1000';
-        toast.style.opacity = '0';
-        toast.style.transition = 'opacity 0.3s ease';
+    //     // Styling untuk toast
+    //     toast.style.position = 'fixed';
+    //     toast.style.bottom = '80px';
+    //     toast.style.left = '50%';
+    //     toast.style.transform = 'translateX(-50%)';
+    //     toast.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
+    //     toast.style.color = '#fff';
+    //     toast.style.padding = '10px 20px';
+    //     toast.style.borderRadius = '20px';
+    //     toast.style.fontSize = '14px';
+    //     toast.style.zIndex = '1000';
+    //     toast.style.opacity = '0';
+    //     toast.style.transition = 'opacity 0.3s ease';
         
-        // Tambahkan ke body
-        document.body.appendChild(toast);
+    //     // Tambahkan ke body
+    //     document.body.appendChild(toast);
         
-        // Tampilkan dengan animasi
-        setTimeout(() => {
-            toast.style.opacity = '1';
-        }, 10);
+    //     // Tampilkan dengan animasi
+    //     setTimeout(() => {
+    //         toast.style.opacity = '1';
+    //     }, 10);
         
-        // Hilangkan setelah beberapa detik
-        setTimeout(() => {
-            toast.style.opacity = '0';
-            setTimeout(() => {
-                toast.remove();
-            }, 300);
-        }, 2000);
-    }
+    //     // Hilangkan setelah beberapa detik
+    //     setTimeout(() => {
+    //         toast.style.opacity = '0';
+    //         setTimeout(() => {
+    //             toast.remove();
+    //         }, 300);
+    //     }, 2000);
+    // }
 
     
 });

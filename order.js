@@ -302,10 +302,10 @@ document.addEventListener('DOMContentLoaded', function() {
             navItems.forEach(navItem => navItem.classList.remove('active'));
             this.classList.add('active');
             
-            const navName = this.querySelector('span').textContent;
-            if (navName !== 'Beranda') {
-                alert(`Halaman ${navName} sedang dalam pengembangan`);
-            }
+            // const navName = this.querySelector('span').textContent;
+            // if (navName !== 'Beranda') {
+            //     alert(`Halaman ${navName} sedang dalam pengembangan`);
+            // }
         });
     });
 
