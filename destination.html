@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maxim App</title>
-    <link rel="stylesheet" href="order.css">
+    <link rel="stylesheet" href="destination.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
@@ -36,12 +36,12 @@
                     </div>
                     <div class="location-details">
                         <div class="location-label">Lokasi penjemputan</div>
-                        <div class="location-address">Binus University, Alam Sutera</div>
-                        <div class="location-street">Jl. Jalur Sutera Bar. No.Kav. 21, RT.001/RW.004, Panunggangan, Kec. Pinang, Kota Tangerang, Banten 15143</div>
+                        <div class="location-address"></div>
+                        <div class="location-street"></div>
                     </div>
                 </div>
                 <div class="pickup-point">
-                    <input type="text" placeholder="Binus University, Alam Sutera" class="pickup-input">
+                    <input type="text" placeholder="Lokasi Terkini" class="pickup-input">
                     <div class="current-location-btn">
                         <i class="fas fa-crosshairs"></i>
                     </div>
@@ -56,26 +56,23 @@
                     </div>
                 </div>
                 <div class="destination-point">
-                    <input type="text" placeholder="Titik Tujuan" class="destination-input">
+                    <input type="text" placeholder="Binus University, Alam Sutera" class="destination-input">
                     <div class="destination-icon-btn">
                         <i class="fas fa-search"></i>
                     </div>
                 </div>
             </div>
-
-            <div class="map-container">
-                <img src="MapBinus.png" alt="Map View" class="map-image">
-            </div>
-
-            <!-- Location Options (New Section) -->
-            <div class="location-title">Binus University Alam Sutera</div>
             
             <div class="location-options">
+                <div class="location-title-container">
+                    <div class="location-title">Binus University Alam Sutera</div>
+                </div>
                 <div class="location-option">
                     <div class="location-option-icon">
                         <i class="fas fa-building"></i>
                     </div>
                     <div class="location-option-text">Lobby</div>
+                    <div class="location-option-distance">5.5km</div>
                 </div>
                 
                 <div class="location-option">
@@ -83,11 +80,26 @@
                         <i class="fas fa-parking"></i>
                     </div>
                     <div class="location-option-text">Parkir Timur</div>
+                    <div class="location-option-distance">5.6km</div>
                 </div>
+
+                <div class="location-option">
+                    <div class="location-option-icon">
+                        <i class="fas fa-parking"></i>
+                    </div>
+                    <div class="location-option-text">Parkiran Motor</div>
+                    <div class="location-option-distance">5.3km</div>
+                </div>
+                <div class="location-title-container">
+                    <div class="location-title">Binus ASO Alam Sutera</div>
+                </div>
+                    <div class="location-title-container">
+                    <div class="location-title">Binus Dormitory Alam Sutera</div>
+    </div>
             </div>
 
             <!-- Order Button -->
-            <button class="order-btn">KONFIRMASI</button>
+            <button class="order-btn">MEMESAN</button>
         </main>
 
         <!-- Bottom Navigation -->
@@ -110,6 +122,6 @@
             </div>
         </nav>
 
-    <script src="order.js"></script>
+    <script src="destination.js"></script>
 </body>
 </html>

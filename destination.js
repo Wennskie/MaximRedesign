@@ -280,18 +280,18 @@ document.addEventListener('DOMContentLoaded', function() {
         const timeOption = document.querySelector('.schedule-option-btn:nth-child(2) span') ? 
                          document.querySelector('.schedule-option-btn:nth-child(2) span').textContent : 'Saat ini';
         
-        if (destination === 'Tujuan') {
-            // Show alert if destination is not set
-            alert('Silakan pilih tujuan Anda terlebih dahulu');
-        } else {
-            // Show booking confirmation with payment and time details
-            let confirmMessage = `Pemesanan ${transportType} dari ${pickupLocation} menuju ${destination} berhasil!\n`;
-            confirmMessage += `Metode pembayaran: ${paymentMethod}\n`;
-            confirmMessage += `Waktu: ${timeOption === 'Saat ini' ? 'Sekarang' : timeOption}\n`;
-            confirmMessage += `Driver akan segera menghubungi Anda.`;
+        // if (destination === 'Tujuan') {
+        //     // Show alert if destination is not set
+        //     alert('Silakan pilih tujuan Anda terlebih dahulu');
+        // } else {
+        //     // Show booking confirmation with payment and time details
+        //     let confirmMessage = `Pemesanan ${transportType} dari ${pickupLocation} menuju ${destination} berhasil!\n`;
+        //     confirmMessage += `Metode pembayaran: ${paymentMethod}\n`;
+        //     confirmMessage += `Waktu: ${timeOption === 'Saat ini' ? 'Sekarang' : timeOption}\n`;
+        //     confirmMessage += `Driver akan segera menghubungi Anda.`;
             
-            alert(confirmMessage);
-        }
+        //     alert(confirmMessage);
+        // }
     });
 
     // Handle navigation item clicks
@@ -365,11 +365,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const pickupInput = document.querySelector('.pickup-input');
 
     pickupInput.addEventListener('focus', function() {
-        this.setAttribute('placeholder', 'Binus University, Alam Sutera');
+        this.setAttribute('placeholder', 'Lokasi Terkini');
     });
 
     pickupInput.addEventListener('blur', function() {
-        this.setAttribute('placeholder', 'Binus University, Alam Sutera');
+        this.setAttribute('placeholder', 'Lokasi Terkini');
     });
 
     // Handler untuk tombol lokasi saat ini

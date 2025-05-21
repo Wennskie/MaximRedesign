@@ -145,7 +145,7 @@ main {
     color: #ccc;
 }
 
-.pickup-point {
+.pickup-point, .destination-point {
     padding-left: 34px;
     margin-bottom: 10px;
     position: relative;
@@ -153,14 +153,14 @@ main {
     align-items: center;
 }
 
-.pickup-input {
+.pickup-input, .destination-input {
     width: 100%;
     padding: 8px;
+    padding-right: 45px; /* Add space for the icon */
     border: none;
     border-radius: 4px;
     background-color: #fff;
     font-size: 14px;
-    transition: box-shadow 0.3s ease;
 }
 
 .pickup-input:focus {
@@ -169,23 +169,42 @@ main {
 }
 
 /* Current Location Button */
-.current-location-btn {
+.current-location-btn, .destination-icon-btn {
+    position: absolute;
+    right: 5px;
     width: 36px;
     height: 36px;
-    background-color: #fff;
+    background-color: transparent;
     border-radius: 50%;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     display: flex;
     justify-content: center;
     align-items: center;
     color: #0066cc;
     cursor: pointer;
-    margin-left: 10px;
-    flex-shrink: 0;
+    box-shadow: none;
 }
-
 .current-location-btn:active {
     background-color: #f0f0f0;
+}
+
+/* Style the check location button */
+.check-location-btn {
+    display: flex;
+    align-items: center;
+    background-color: #f0f0f0;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 12px;
+    font-size: 14px;
+    color: #0066cc;
+    cursor: pointer;
+    width: calc(100% - 34px);
+    margin-left: 34px;
+    margin-bottom: 10px;
+}
+
+.check-location-btn i {
+    margin-right: 8px;
 }
 
 /* Map Image Styles */
@@ -253,6 +272,13 @@ object-fit: cover;
 .location-option-text {
     font-size: 16px;
     font-weight: 500;
+}
+
+.location-option-distance {
+    color: #666;
+    font-size: 14px;
+    font-weight: 400;
+    margin-left: auto;
 }
 
 /* Transport Options */

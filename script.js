@@ -290,31 +290,6 @@ locationSelectors.forEach(selector => {
     });
 });
 
-// Simulate location selector
-function showLocationSelector(type) {
-    if (type === 'tujuan') {
-        const destinations = [
-            'Mall Grand Indonesia',
-            'Stasiun Gambir',
-            'Bandara Soekarno-Hatta',
-            'Taman Mini Indonesia Indah',
-            'Monas'
-        ];
-        
-        let locationOptions = 'Pilih lokasi tujuan:\n\n';
-        destinations.forEach((dest, index) => {
-            locationOptions += `${index + 1}. ${dest}\n`;
-        });
-        
-        const selectedIndex = prompt(locationOptions, '1') - 1;
-        if (selectedIndex >= 0 && selectedIndex < destinations.length) {
-            document.querySelector('.destination .location-label').textContent = destinations[selectedIndex];
-        }
-    } else {
-        alert('Fitur perubahan lokasi penjemputan sedang dalam pengembangan');
-    }
-}
-
 // Add focus effect to pickup input
 const pickupInput = document.querySelector('.pickup-input');
 
@@ -355,6 +330,40 @@ pickupInput.addEventListener('blur', function() {
             });
         }
     }
+
+        // Handle destination input and icon clicks to redirect to destination.html
+        const destinationInput = document.querySelector('.destination-input');
+        const destinationIconBtn = document.querySelector('.destination-icon-btn');
+        const destinationPoint = document.getElementById('destination-redirect');
+
+        if (destinationInput) {
+            destinationInput.addEventListener('click', function() {
+            window.location.href = 'destination.html';
+            });
+        }
+
+        if (destinationIconBtn) {
+            destinationIconBtn.addEventListener('click', function() {
+                window.location.href = 'destination.html';
+            });
+        }
+
+        if (destinationPoint) {
+            destinationPoint.addEventListener('click', function(e) {
+                // Only redirect if the click was directly on the container, not on its children
+                if (e.target === this) {
+                    window.location.href = 'destination.html';
+                }
+            });
+        }
+
+        // Also update the destination selector in the header to redirect when clicked
+        // const destinationHeader = document.querySelector('.destination');
+        // if (destinationHeader) {
+        //     destinationHeader.addEventListener('click', function() {
+        //         window.location.href = 'destination.html';
+        //     });
+        // }
 
 // Handler untuk tombol lokasi saat ini
     // const currentLocationBtn = document.querySelector('.current-location-btn');

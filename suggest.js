@@ -502,6 +502,40 @@ document.addEventListener('DOMContentLoaded', function() {
             setTimeout(() => modal.remove(), 300);
         });
     }
+
+    // Handle destination input and icon clicks to redirect to destination.html
+    const destinationInput = document.querySelector('.destination-input');
+    const destinationIconBtn = document.querySelector('.destination-icon-btn');
+    const destinationPoint = document.getElementById('destination-redirect');
+
+    if (destinationInput) {
+        destinationInput.addEventListener('click', function() {
+            window.location.href = 'destination.html';
+        });
+    }
+
+    if (destinationIconBtn) {
+        destinationIconBtn.addEventListener('click', function() {
+            window.location.href = 'destination.html';
+        });
+    }
+
+    if (destinationPoint) {
+        destinationPoint.addEventListener('click', function(e) {
+            // Only redirect if the click was directly on the container, not on its children
+            if (e.target === this) {
+                window.location.href = 'destination.html';
+            }
+        });
+    }
+
+    // Also update the destination selector in the header to redirect when clicked
+    const destinationHeader = document.querySelector('.destination');
+    if (destinationHeader) {
+        destinationHeader.addEventListener('click', function() {
+            window.location.href = 'destination.html';
+        });
+    }
     
     // Fungsi untuk menampilkan toast notification
     function showToast(message) {
