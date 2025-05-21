@@ -365,7 +365,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const pickupInput = document.querySelector('.pickup-input');
 
     pickupInput.addEventListener('focus', function() {
-        this.setAttribute('placeholder', 'Lokasi Terkini');
+        this.setAttribute('placeholder', 'Cari lokasi atau pin di peta');
+        // Redirect to order.html when clicked/focused
+        window.location.href = 'order.html';
     });
 
     pickupInput.addEventListener('blur', function() {
@@ -376,9 +378,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const currentLocationBtn = document.querySelector('.current-location-btn');
     
     if (currentLocationBtn) {
-        // MODIFIED: Redirect to suggest.html when current location button is clicked
         currentLocationBtn.addEventListener('click', function() {
-            window.location.href = 'suggest.html';
+            window.location.href = 'order.html';
         });
     } else {
         console.error('Tombol lokasi saat ini (.current-location-btn) tidak ditemukan');
@@ -393,9 +394,8 @@ document.addEventListener('DOMContentLoaded', function() {
             // Tambahkan sebelum elemen lain dalam location card
             locationCard.prepend(currentLocationButton);
             
-            // MODIFIED: Add event listener to redirect to suggest.html
             currentLocationButton.addEventListener('click', function() {
-                window.location.href = 'suggest.html';
+                window.location.href = 'order.html';
             });
         }
     }
